@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --hc-green: #16a34a;
+  --hc-green-light: #22c55e;
+  --hc-green-dark: #15803d;
+  --hc-teal: #0f766e;
+  --hc-teal-light: #14b8a6;
+  --hc-gray: #f8fafc;
+  --hc-text: #0f172a;
+  --hc-text-muted: #64748b;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 6%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 173 80% 26%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 72% 29%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-foreground antialiased;
+    font-family: 'Cairo', 'Inter', sans-serif;
+  }
+
+  html[lang='en'] body {
+    font-family: 'Inter', 'Cairo', sans-serif;
+  }
+
+  html[lang='ar'] body {
+    font-family: 'Cairo', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-arabic {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .font-english {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-green-700 to-teal-600 bg-clip-text text-transparent;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .hc-btn-primary {
+    @apply bg-green-700 text-white hover:bg-green-800 transition-all duration-200 rounded-lg px-6 py-3 font-semibold shadow-md hover:shadow-lg;
+  }
+
+  .hc-btn-outline {
+    @apply border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white transition-all duration-200 rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .section-divider {
+    @apply border-t border-gray-100;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .rtl-flip {
+  transform: scaleX(1);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 2px;
+}
